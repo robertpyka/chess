@@ -13,16 +13,22 @@ bQ = tk.PhotoImage(file = "images/bQ.png")
 bK = tk.PhotoImage(file = "images/bK.png")
 bN = tk.PhotoImage(file = "images/bN.png")
 bB = tk.PhotoImage(file = "images/bB.png")
+wP = tk.PhotoImage(file = "images/wP.png")
+wR = tk.PhotoImage(file = "images/wR.png")
+wQ = tk.PhotoImage(file = "images/wQ.png")
+wK = tk.PhotoImage(file = "images/wK.png")
+wN = tk.PhotoImage(file = "images/wN.png")
+wB = tk.PhotoImage(file = "images/wB.png")
 tiles={}
 
-pieces = [[bR,bN,bB,bQ,bK,bB,bN,bR],
+pieces = [[bR,bN,bB,bK,bQ,bB,bN,bR],
         [bP,bP,bP,bP,bP,bP,bP,bP],
         [e,e,e,e,e,e,e,e],
         [e,e,e,e,e,e,e,e],
         [e,e,e,e,e,e,e,e],
         [e,e,e,e,e,e,e,e],
-        [e,e,e,e,e,e,e,e],
-        [e,e,e,e,e,e,e,e]]
+        [wP,wP,wP,wP,wP,wP,wP,wP],
+        [wR,wN,wB,wK,wQ,wB,wN,wR]]
 # creating a chess board
 for i in range(8):
     for j in range(8):
