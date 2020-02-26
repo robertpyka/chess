@@ -3,6 +3,20 @@ import tkinter as tk
 
 window = tk.Tk()
 
+def coord(event):
+    w = str(event.widget)
+    coord = w.replace(".!button","")
+    
+    if coord == "":
+        row = 0
+        col = 0
+    else:
+        coord = int(coord)
+        row = int((coord-1)/8)
+        col = (coord-1)%8
+    print(row,col)
+    return row,col
+    
 #adding pictures
 back1 = "#FFF8DC" 	
 back2 = "#D2691E"
@@ -21,6 +35,7 @@ wN = tk.PhotoImage(file = "images/wN.png")
 wB = tk.PhotoImage(file = "images/wB.png")
 tiles={}
 
+#start position of pieces
 pieces = [[bR,bN,bB,bK,bQ,bB,bN,bR],
         [bP,bP,bP,bP,bP,bP,bP,bP],
         [e,e,e,e,e,e,e,e],
@@ -30,8 +45,11 @@ pieces = [[bR,bN,bB,bK,bQ,bB,bN,bR],
         [wP,wP,wP,wP,wP,wP,wP,wP],
         [wR,wN,wB,wK,wQ,wB,wN,wR]]
 # creating a chess board
+# in fist loop row is used to 
 for i in range(8):
+
     for j in range(8):
+
         #function if used to set color of button with modulo
         if (i+j)%2 == 0:
             back = back1
@@ -43,9 +61,11 @@ for i in range(8):
             width=80,
             height=80,
             bg = back,
-            image= pieces[i][j]
+            image= pieces[i][j],
             )
         tiles[i,j].grid(row=i, column=j)
+        tiles[i,j].bind("<Button-1>",coord)
+        
 
 # list of poles
 ##tiles = [[['a8','b8','c8','d8','e8','f8','g8','h8'],\
